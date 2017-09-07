@@ -1,0 +1,76 @@
+// 1. create vivid_sequence.uid_sequence collection:
+// run generate_random_uid_sequence.js
+
+
+// 2. create vivid_sequence.sequences collection:
+// keep index 0 ~ 9999 for furture using
+use vivid_sequence
+db.createCollection("sequences", {})
+db.sequences.insert({"name" : "account", "bulksize" : 100, "start" : 9999, "end" : 9999, "max" : NumberLong("89999999") , "ver" : 0})
+
+
+// 3. create vivid.account collection:
+use vivid
+db.createCollection('account',{})
+db.account.createIndex({channelUid: 1},{unique: true, sparse: true})
+
+
+// 4. create vivid.relation collection:
+use vivid
+db.createCollection("relation", {})
+db.relation.createIndex({subject: 1})
+db.relation.createIndex({object: 1})
+db.relation.createIndex({subject: 1, verb : 1, object: 1},{unique: true})
+
+// FOR PurchaseService
+
+// 5. create vivid.product collection:
+// TODO: is it necessary to set unique index for field "name"?
+use vivid
+db.createCollection("product", {})
+db.product.insert({"name" : "Vivid60P", "point" : 60, "price" : { "USD" : 0.99, "CNY" : 6 }, "available" : true})
+db.product.insert({"name" : "Vivid600P", "point" : 688, "price" : { "USD" : 9.99, "CNY" : 68 }, "available" : true})
+
+// 6. create vivid.purchase collection:
+use vivid
+db.createCollection("purchase", {})
+db.purchase.createIndex({channel_tradeId: 1},{unique: true, sparse: true})
+
+// 7. create vivid.gift collection:
+use vivid
+db.createCollection("gift", {})
+db.gift.insert({"name" : "flower_bunch", "type" : 1, render: 1, "value" : { "points" : 5, "coins" : 3 }, "available" : true})
+db.gift.insert({"name" : "chocolate_cake", "type" : 1, render: 2, "value" : { "points" : 10, "coins" : 5 }, "available" : true})
+db.gift.insert({"name" : "bear_doll", "type" : 1, render: 3, "value" : { "points" : 20, "coins" : 10 }, "available" : true})
+db.gift.insert({"name" : "diamond_ring", "type" : 1, render: 4, "value" : { "points" : 50, "coins" : 25 }, "available" : true})
+db.gift.insert({"name" : "racing_car", "type" : 1, render: 5, "value" : { "points" : 200, "coins" : 100 }, "available" : true})
+db.gift.insert({"name" : "pleasure_boat", "type" : 1, render: 6, "value" : { "points" : 1000, "coins" : 500 }, "available" : true})
+
+// 8. create vivid.presentation collection:
+use vivid
+db.createCollection("presentation", {})
+
+// 9. create vivid.balance collection:
+use vivid
+db.createCollection("balance", {})
+
+// 10. create vivid.income collection:
+use vivid
+db.createCollection("income", {})
+
+// 11. create vivid.balance_log collection:
+// TODO: create index
+use vivid
+db.createCollection("balance_log", {})
+
+// 12. create vivid.income_log collection:
+// TODO: create index
+use vivid
+db.createCollection("income_log", {})
+
+// 13. create vivid.profile collection
+use vivid
+db.createCollection('profile', {})
+db.profile.createIndex({nick: 1},{sparse: true})
+
+

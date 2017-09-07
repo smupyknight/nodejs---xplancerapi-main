@@ -1,0 +1,23 @@
+{
+  "name": "vivid_main_service",
+  "version": "1.0.0",
+  "description": "main service of External Live Broadcasting App Vivid",
+  "author": "sunzc",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "config": "1.21.0",
+    "express": "3.4.8",
+    "async": "2.0.1",
+    "winston": "0.7.2",
+    "js-yaml": "2.1.x",
+    "redis": "~0.8.1",
+    "underscore": "1.6.0",
+    "node-rest-client": "2.0.1",
+    "mongoose": "4.6.5",
+    "aws-sdk":"2.6.12",
+    "request":"2.78.0"
+  }
+}

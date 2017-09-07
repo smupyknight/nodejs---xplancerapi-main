@@ -1,0 +1,61 @@
+1. account/auth3party
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "channel=1" --data-urlencod "channelUid=onBpqv1LZmTjjvd2Mzyx8tqMiEmI" --data-urlencod "accessToken=sgNsFcmd60GpDzl4-p1QCmd5BAnorekQnxMoZe9imIip3QYHJsYK_MttHdLIWzZEzO3zR8FMVixxc_P_ZnSq_wSK72azJPbXuAvuQfeeMPo" http://211.137.43.104/account/auth3party
+
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "channel=2" --data-urlencod "channelUid=9749FC057DE19540627A5155D995E88E" --data-urlencod "accessToken=DFAAC140743F417982FA6FABF39620F9" http://211.137.43.104/account/auth3party
+
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "channel=3" --data-urlencod "channelUid=2006962763" --data-urlencod "accessToken=2.00JhApLC02odZv0dfddbb14cNHKZgD" http://211.137.43.104/account/auth3party
+
+curl -v --header "Content-Type: application/x-www-form-urlencoded" --data-urlencod "access_token=2.00JhApLC02odZv0dfddbb14cNHKZgD" https://api.weibo.com/oauth2/get_token_info
+
+2. relation/update
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" --data-urlencod "uid=72631088" --data-urlencod "data=[{\"type\":1, \"uids\":[94918158]}]" "http://211.137.43.104/relation/update"
+
+
+3. relation/get
+curl -v --header "host:vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/relation/get?uid=72631088&type=1&user=94918158"
+
+
+4. room/create
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" --data-urlencod "uid=72631088" "http://211.137.43.104/room/create"
+
+
+5. room/join
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064766:2ae5cf3da83f041992d51d0f226e9488" --data-urlencod "uid=94918158" --data-urlencod "rid=685474817" "http://211.137.43.104/room/join"
+
+
+6 room/leave
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064766:2ae5cf3da83f041992d51d0f226e9488" --data-urlencod "uid=94918158" --data-urlencod "rid=2146829312" "http://211.137.43.104/room/leave"
+
+
+7. room/get
+curl -v --header "host:vvdservice.agora.io" "http://211.137.43.104:6061/room/get?type=1"
+
+curl -v --header "host: vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/room/get?uid=72631088&type=2"
+
+curl -v -g --header "host: vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/room/get?uid=72631088&type=4&rIds[]=685474817"
+
+note: -g 表示 --globoff，传 array 时需要设置，否则报错
+
+8. room/getUsersIn
+curl -v -g --header "host: vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/room/getUsersIn?uid=72631088&users[]=72631088&users[]=94918158"
+
+9. gift/get
+curl -v --header "host:vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/gift/get?uid=72631088"
+
+10. gift/present
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064766:2ae5cf3da83f041992d51d0f226e9488" --data-urlencod "uid=94918158" --data-urlencod "to=72631088" --data-urlencod "gid=580740ca7f8cb2ec607c5bbb" --data-urlencod "serial=12345" "http://211.137.43.104/gift/present"
+
+11. profile/update
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064766:2ae5cf3da83f041992d51d0f226e9488" --data-urlencod "uid=94918158" --data-urlencod "source=2" --data-urlencod "nick=xiatianrenzituome" "http://211.137.43.104/profile/update"
+
+12. profile/get
+curl -v --header "host:vvdservice.agora.io" --data-urlencod "token=1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" --data-urlencod "uid=72631088" --data-urlencod "users=[{\"uid\":94918158}, {\"v\":1, \"uid\":72631088}]" "http://211.137.43.104/profile/get"
+
+13. profile/search
+curl -v --header "host:vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/profile/search?uid=72631088&nick=M&from=0&to=1"
+
+14. credit/get
+curl -v --header "host:vvdservice.agora.io" --header "token: 1:adf6abb104904268a544c1c408294964:1480064639:fce8eddd707dc0c4f024268489cdf71b" "http://211.137.43.104/credit/get?uid=72631088"
+
+
+

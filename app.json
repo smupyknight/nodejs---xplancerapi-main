@@ -1,0 +1,11 @@
+[{
+    "name": "vivid_main_service",
+    "script": "./app.js",
+    "error_file": "/data/logs/vivid_main_service/err.log",
+    "out_file": "/data/logs/vivid_main_service/out.log",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "exec_mode"  : "fork_mode",
+    "env": {
+        "NODE_ENV": "production"
+    }
+}]

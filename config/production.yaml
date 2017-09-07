@@ -1,0 +1,77 @@
+# replce PLACE_HOLDER with your own information
+
+ServiceInfo:
+    name: VividMainService
+    category: /vivid
+    masterslave: false
+    desc: '????'
+
+AppInfo:
+    app_id: 37e788da8c954227bbf566ceb9a7181c
+    app_certificate: 439114ec2d4d46fd87f5f5d1019da920
+
+Logger:
+    - name: winston.transports.File
+      options:
+          name: 'file'
+          level: "info"
+          json: false
+          filename: "/data/logs/vivid_main_service/vivid_main_service.log"
+    - name: winston.transports.File
+      options:
+          name: 'file-err'
+          level: "error"
+          json: false
+          filename: "/data/logs/vivid_main_service/vivid_main_service.err"
+
+Data:
+    redis_host: http://128.199.190.130
+    redis_port: 6379
+    db: 7
+
+Base:
+    http_host: http://128.199.190.130
+    http_port: 6061
+    mgdb_url: 'mongodb://localhost:27017/vivid'
+    mgdb_seq_url: 'mongodb://localhost:27017/vivid_sequence'
+
+Online:
+    notify_path: '/online/notify'
+
+AuthConfig:
+    vendor_key: 37e788da8c954227bbf566ceb9a7181c
+    sign_key: 439114ec2d4d46fd87f5f5d1019da920
+    expired_sec: 2592000
+
+RelationManager:
+    subscribe_limit: 200
+    get_limit: 100
+    
+RoomController:
+    cal_hot_audience_mode: 1
+    get_room_limit: 50
+    get_users_in_limit: 100
+
+UidGenerator:
+    min: 10000000
+    max: 99999999
+
+SignalManager:
+    signal_server: 'http://api.sig.agora.io/api1'
+
+Account:
+    init_balance: 10
+    init_income: 0
+
+Upload:
+    uploadDir: '/tmp'
+    S3:
+        bucket: PLACE_HOLDER
+        apiVersion: PLACE_HOLDER
+        endpoint: PLACE_HOLDER
+
+ProfileManager:
+    get_profile_limit: 100
+    search_limit: 50
+
+
